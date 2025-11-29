@@ -54,11 +54,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Variable examples with documentation
 - Terraform version constraints:
   - Terraform >= 1.3.0
-  - GitLab provider ~> 17.0
+  - GitLab provider ~> 18.0
 
 ### Technical Details
 
-- **Provider Support**: GitLab provider v17.0+ for full feature compatibility
+- **Provider Support**: GitLab provider v18.0+ for full feature compatibility
 - **Terraform Compatibility**: Requires Terraform 1.3.0 or higher
 - **Module Structure**: Follows Terraform module best practices
 - **Validation**: Comprehensive input validation to prevent configuration errors
