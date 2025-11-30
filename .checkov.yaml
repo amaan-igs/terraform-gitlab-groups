@@ -1,0 +1,14 @@
+# Checkov configuration for GitLab Groups Terraform Module
+framework:
+  - terraform
+
+# Skip checks that conflict with Terraform Registry best practices
+skip-check:
+  - CKV_TF_1  # Allow semantic versioning for registry modules
+
+# Only run relevant checks for this module
+check:
+  - CKV_TF_2   # Ensure Terraform module sources use a tag
+  - CKV_TF_3   # Ensure Terraform module sources do not use HTTP
+  - CKV_GLB_*  # GitLab specific checks
+  - CKV_GIT_*  # Git security checks

@@ -21,7 +21,8 @@ A comprehensive Terraform module for creating and managing GitLab groups with fu
 
 ```hcl
 module "basic_group" {
-  source = "./modules/gitlab-groups"
+  source  = "sudo-terraform-modules/groups/gitlab"
+  version = "0.2.0"
 
   name        = "development-team"
   path        = "dev-team"
@@ -33,7 +34,8 @@ module "basic_group" {
 
 ```hcl
 module "secure_group" {
-  source = "./modules/gitlab-groups"
+  source  = "sudo-terraform-modules/groups/gitlab"
+  version = "0.2.0"
 
   # Basic Configuration
   name        = "security-team"
@@ -77,7 +79,8 @@ module "secure_group" {
 ```hcl
 # Parent group
 module "engineering_group" {
-  source = "./modules/gitlab-groups"
+  source  = "sudo-terraform-modules/groups/gitlab"
+  version = "0.2.0"
 
   name        = "Engineering"
   path        = "engineering"
@@ -89,7 +92,8 @@ module "engineering_group" {
 
 # Child subgroup
 module "backend_team" {
-  source = "./modules/gitlab-groups"
+  source  = "sudo-terraform-modules/groups/gitlab"
+  version = "0.2.0"
 
   name        = "Backend Team"
   path        = "backend"
@@ -102,7 +106,8 @@ module "backend_team" {
 
 ```hcl
 module "cicd_group" {
-  source = "./modules/gitlab-groups"
+  source  = "sudo-terraform-modules/groups/gitlab"
+  version = "0.2.0"
 
   name        = "CI/CD Projects"
   path        = "cicd-projects"
@@ -213,12 +218,20 @@ For a complete list of all outputs, see the [outputs.tf](./outputs.tf) file.
 
 ## Examples
 
+For comprehensive usage examples including enterprise setups, nested subgroups, and specialized configurations, see the [examples directory](https://github.com/sudo-terraform-modules/terraform-gitlab-groups/tree/main/examples).
+
+The examples include:
+
+- **Complete Configuration** (`main.tf`) - Full organizational structure with DevOps teams, SAP subgroups, and security configurations
+- **Variables and Documentation** - Complete variable examples and setup instructions
+
 ### Creating a Project in the Group
 
 ```hcl
 # Create the group
 module "my_group" {
-  source = "./modules/gitlab-groups"
+  source  = "sudo-terraform-modules/groups/gitlab"
+  version = "0.2.0"
 
   name        = "my-team"
   path        = "my-team"
@@ -239,7 +252,8 @@ resource "gitlab_project" "my_project" {
 
 ```hcl
 module "enterprise_group" {
-  source = "./modules/gitlab-groups"
+  source  = "sudo-terraform-modules/groups/gitlab"
+  version = "0.2.0"
 
   name        = "Enterprise Applications"
   path        = "enterprise-apps"
@@ -288,7 +302,7 @@ module "enterprise_group" {
 
 ## Module Structure
 
-```
+```text
 ├── .github/
 │   └── workflows/          # CI/CD pipeline configurations
 ├── .gitignore              # Git ignore patterns
@@ -316,22 +330,7 @@ The module includes comprehensive input validation:
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes following the existing code style
-4. Add or update tests as needed
-5. Update documentation
-6. Commit your changes (`git commit -m 'feat: add amazing feature'`)
-7. Push to the branch (`git push origin feature/amazing-feature`)
-8. Open a Pull Request
-
-### Development Guidelines
-
-- Follow Terraform best practices and style guidelines
-- Add validation for new variables where appropriate
-- Update documentation for any new features or changes
-- Test with multiple GitLab provider versions
-- Ensure backward compatibility when possible
+We welcome contributions! Please see our [Contributing Guide](.github/contributing.md) for details on how to contribute to this module, including development setup, testing guidelines, and submission requirements.
 
 ## Security Considerations
 
@@ -351,6 +350,10 @@ This module is licensed under the Apache 2.0 License. See [LICENSE](./LICENSE) f
 ## Changelog
 
 See [CHANGELOG.md](./CHANGELOG.md) for version history and changes.
+
+## Maintainer
+
+This module is maintained by [Amaan Ul Haq Siddiqui](https://github.com/amaan-igs).
 
 ---
 
